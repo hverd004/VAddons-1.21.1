@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mc_v_addons:block/phantom_gem_block"
+    }
+  }
+}

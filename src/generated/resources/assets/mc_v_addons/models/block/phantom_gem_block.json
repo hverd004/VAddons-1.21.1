@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "mc_v_addons:block/phantom_gem_block"
+  }
+}

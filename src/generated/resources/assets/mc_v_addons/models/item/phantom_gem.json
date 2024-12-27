@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mc_v_addons:item/phantom_gem"
+  }
+}
