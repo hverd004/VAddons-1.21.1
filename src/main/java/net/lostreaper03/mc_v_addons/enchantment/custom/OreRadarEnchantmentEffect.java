@@ -17,10 +17,11 @@ public class OreRadarEnchantmentEffect implements EnchantmentEntityEffect {
     public static final MapCodec<OreRadarEnchantmentEffect> CODEC = MapCodec.unit(OreRadarEnchantmentEffect::new);
     @Override
     public void apply(ServerLevel pLevel, int pEnchantmentLevel, EnchantedItemInUse pItem, Entity pEntity, Vec3 origin) {
-        System.out.println((int) origin.x);
-        System.out.println((int) origin.y);
-        System.out.println((int) origin.z);
-        BlockPos blockPos = new BlockPos((int) origin.x, (int) origin.y, (int) origin.z);
+        System.out.println((int) Math.floor(origin.x));
+        System.out.println((int) Math.floor(origin.y));
+        System.out.println((int) Math.floor(origin.z));
+        System.out.println(origin.z);
+        BlockPos blockPos = new BlockPos((int) Math.floor(origin.x), (int) Math.floor(origin.y), (int) Math.floor(origin.z));
         if(isNearOre(pLevel, blockPos)){
             pEntity.level().playSound(null, pEntity.getX(), pEntity.getY(), pEntity.getZ(),
                     SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.PLAYERS, 1.0F, 1.0F);
@@ -31,11 +32,12 @@ public class OreRadarEnchantmentEffect implements EnchantmentEntityEffect {
         for (int dx = -5; dx <= 5; dx++) {
             for (int dy = -5; dy <= 5; dy++) {
                 for (int dz = -5; dz <= 5; dz++) {
-                    BlockPos nearbyPos = new BlockPos((int) (pos.getX()) + dx, (int) (pos.getY()) + dy, (int) (pos.getZ()) + dz);
+                    BlockPos nearbyPos = new BlockPos( pos.getX() + dx,  pos.getY() + dy, pos.getZ() + dz);
                     BlockState blockState = level.getBlockState(nearbyPos);
                     if (blockState.is(Tags.Blocks.ORES)) {
                         System.out.println(blockState);
                         System.out.println(nearbyPos);
+                        System.out.println("scanned at: " + nearbyPos);
                         return true;
                     }
                 }
