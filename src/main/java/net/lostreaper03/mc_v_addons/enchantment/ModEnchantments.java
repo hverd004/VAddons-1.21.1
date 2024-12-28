@@ -2,6 +2,7 @@ package net.lostreaper03.mc_v_addons.enchantment;
 
 import net.lostreaper03.mc_v_addons.MCVAddonsMod;
 import net.lostreaper03.mc_v_addons.enchantment.custom.LightningStrikerEnchantmentEffect;
+import net.lostreaper03.mc_v_addons.enchantment.custom.OreRadarEnchantmentEffect;
 import net.lostreaper03.mc_v_addons.enchantment.custom.ReverseThornsEnchantmentEffect;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -24,6 +25,9 @@ public class ModEnchantments {
 
     public static final ResourceKey<Enchantment> REVERSE_THORNS = ResourceKey.create(Registries.ENCHANTMENT,
             ResourceLocation.fromNamespaceAndPath(MCVAddonsMod.MOD_ID, "reverse_thorns"));
+
+    public static final ResourceKey<Enchantment> ORE_RADAR = ResourceKey.create(Registries.ENCHANTMENT,
+            ResourceLocation.fromNamespaceAndPath(MCVAddonsMod.MOD_ID, "ore_radar"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context){
         var enchantments = context.lookup(Registries.ENCHANTMENT);
@@ -53,6 +57,17 @@ public class ModEnchantments {
                         EquipmentSlotGroup.ARMOR))
                 .withEffect(EnchantmentEffectComponents.POST_ATTACK, EnchantmentTarget.VICTIM,
                         EnchantmentTarget.VICTIM, new ReverseThornsEnchantmentEffect())
+        );
+
+        register(context, ORE_RADAR, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(ItemTags.PICKAXES),
+                        10,
+                        1,
+                        Enchantment.dynamicCost(8,10),
+                        Enchantment.dynamicCost(25,8),
+                        2,
+                        EquipmentSlotGroup.MAINHAND))
+                .withEffect(EnchantmentEffectComponents.HIT_BLOCK, new OreRadarEnchantmentEffect())
         );
     }
     private static void register(BootstrapContext<Enchantment> registry, ResourceKey<Enchantment> key, Enchantment.Builder builder){

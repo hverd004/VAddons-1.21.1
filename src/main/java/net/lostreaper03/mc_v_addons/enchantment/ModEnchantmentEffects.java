@@ -3,6 +3,7 @@ package net.lostreaper03.mc_v_addons.enchantment;
 import com.mojang.serialization.MapCodec;
 import net.lostreaper03.mc_v_addons.MCVAddonsMod;
 import net.lostreaper03.mc_v_addons.enchantment.custom.LightningStrikerEnchantmentEffect;
+import net.lostreaper03.mc_v_addons.enchantment.custom.OreRadarEnchantmentEffect;
 import net.lostreaper03.mc_v_addons.enchantment.custom.ReverseThornsEnchantmentEffect;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
@@ -19,6 +20,9 @@ public class ModEnchantmentEffects {
 
     public static final RegistryObject<MapCodec<? extends EnchantmentEntityEffect>> REVERSE_THORNS =
             ENTITY_ENCHANTMENT_EFFECTS.register("reverse_thorns", ()  -> ReverseThornsEnchantmentEffect.CODEC);
+
+    public static final RegistryObject<MapCodec<? extends EnchantmentEntityEffect>> ORE_RADAR =
+            ENTITY_ENCHANTMENT_EFFECTS.register("ore_radar", ()  -> OreRadarEnchantmentEffect.CODEC);
 
      public static void register(IEventBus eventBus){
          ENTITY_ENCHANTMENT_EFFECTS.register(eventBus);
