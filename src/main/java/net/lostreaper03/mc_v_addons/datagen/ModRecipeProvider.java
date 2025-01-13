@@ -6,6 +6,7 @@ import net.lostreaper03.mc_v_addons.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
@@ -27,6 +28,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("AAA")
                 .pattern("AAA")
                 .define('A', ModItems.PHANTOM_GEM.get())
+                .unlockedBy(getHasName(ModItems.PHANTOM_GEM.get()), has(ModItems.PHANTOM_GEM.get())).save(recipeOutput);
+        //lasso
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.V_LASSO.get())
+                .pattern(" A ")
+                .pattern(" BA")
+                .pattern(" A ")
+                .define('A', Items.LEAD)
+                .define('B', Items.SLIME_BALL)
                 .unlockedBy(getHasName(ModItems.PHANTOM_GEM.get()), has(ModItems.PHANTOM_GEM.get())).save(recipeOutput);
 
          ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.PHANTOM_GEM.get(), 9)

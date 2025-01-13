@@ -14,5 +14,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         basicItem(ModItems.PHANTOM_GEM.get());
+        //basicItem(ModItems.V_LASSO.get());
     }
 }

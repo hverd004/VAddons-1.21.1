@@ -3,6 +3,7 @@ package net.lostreaper03.mc_v_addons;
 import com.mojang.logging.LogUtils;
 import net.lostreaper03.mc_v_addons.block.ModBlocks;
 import net.lostreaper03.mc_v_addons.enchantment.ModEnchantmentEffects;
+import net.lostreaper03.mc_v_addons.entity.ModEntities;
 import net.lostreaper03.mc_v_addons.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -81,6 +82,8 @@ public class MCVAddonsMod {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModEntities.ENTITIES.register(modEventBus);
+
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -108,6 +111,8 @@ public class MCVAddonsMod {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
             event.accept(ModBlocks.PHANTOM_GEM_BLOCK);
         }
+        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES){
+            event.accept(ModItems.V_LASSO);}
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

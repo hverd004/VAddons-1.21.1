@@ -1,0 +1,6 @@
+{
+    "parent": "mc_v_addons:item/v_lasso",
+    "textures": {
+        "layer0": "mc_v_addons:item/v_lasso_pulling_1"
+    }
+}

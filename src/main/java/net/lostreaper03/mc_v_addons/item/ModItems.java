@@ -1,6 +1,8 @@
 package net.lostreaper03.mc_v_addons.item;
 
 import net.lostreaper03.mc_v_addons.MCVAddonsMod;
+import net.lostreaper03.mc_v_addons.item.custom.LassoItem;
+import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -13,6 +15,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> PHANTOM_GEM = ITEMS.register("phantom_gem",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> V_LASSO = ITEMS.register("v_lasso",
+            () -> new LassoItem(new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
